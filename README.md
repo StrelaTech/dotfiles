@@ -1,4 +1,4 @@
-DotDotfiles
+Dotfiles
 
 My personal configuration files for Hyprland and related tools on Arch Linux.
 
