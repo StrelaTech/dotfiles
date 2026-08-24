@@ -9,16 +9,18 @@ window#waybar {
     padding: 6px 16px;
 }
 
+/* Единый стиль для всех модулей */
 #workspaces,
 #clock,
 #pulseaudio,
+#bluetooth,
+#backlight,
 #network,
 #battery,
-#tray,
-#custom-weather,
-#custom-uptime,
-#custom-sep,
-#custom-terminal {
+#cpu,
+#memory,
+#custom-terminal,
+#custom-firefox {
     background: rgba(10, 10, 15, 1);
     color: #e0e0e0;
     border-radius: 20px;
@@ -27,9 +29,18 @@ window#waybar {
     border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-#custom-terminal {
+#custom-terminal,
+#custom-firefox {
     font-size: 18px;
-    color:#e0e0e0 ;
+}
+
+#custom-sep {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.15);
+    padding: 0 2px;
+    margin: 0 2px;
+    border: none;
+    font-size: 16px;
 }
 
 #workspaces {
@@ -55,30 +66,20 @@ window#waybar {
     color: #ffffff;
 }
 
-#clock          { color: #e0e0e0; }
-#pulseaudio     { color: #e0e0e0; }
-#network        { color: #e0e0e0; }
-#battery        { color: #e0e0e0; }
+/* Состояния */
 #battery.warning { color: #f9e2af; }
 #battery.critical { color: #f38ba8; }
 #network.disconnected { color: #f38ba8; }
-#pulseaudio.muted { color: rgba(255, 255, 255, 0.9); }
+#pulseaudio.muted { color: rgba(255, 255, 255, 0.5); }
 
-#tray {
-    padding: 4px 10px;
+#cpu.high,
+#memory.high {
+    color: #ff5555;
 }
 
-#custom-sep {
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    color: rgba(255, 255, 255, 0.08);
-    padding: 0 4px;
-    margin: 0 2px;
-}
-
-#custom-weather {
-    padding: 4px 14px;
+#cpu.critical,
+#memory.critical {
+    color: #ff0000;
 }
 
 tooltip {
@@ -91,5 +92,4 @@ tooltip {
 tooltip label {
     color: #e0e0e0;
     font-size: 12px;
-    font-family: "JetBrainsMono Nerd Font", sans-serif;
 }
