@@ -4,9 +4,9 @@
     "height": 34,
     "spacing": 4,
 
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["hyprland/workspaces", "custom/sep", "custom/terminal", "custom/firefox"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/terminal", "backlight", "network", "battery", "tray"],
+    "modules-right": ["custom/sep", "network", "bluetooth", "custom/sep", "battery", "pulseaudio", "backlight"],
 
     "hyprland/workspaces": {
         "format": "{icon}",
@@ -28,43 +28,72 @@
         "on-scroll-down": "hyprctl dispatch workspace -1"
     },
 
-    "clock": {
-        "format": "{:%H:%M:%S}",
-        "tooltip-format": "{:%A, %d %B %Y}",
-        "interval": 1
+    "custom/sep": {
+        "format": "|",
+        "tooltip": false
     },
 
     "custom/terminal": {
         "format": "",
         "on-click": "kitty",
         "tooltip": true,
-        "tooltip-format": "Kitty"
+        "tooltip-format": "Терминал"
     },
 
-    "backlight": {
-        "format": "{icon} {percent}%",
-        "format-icons": ["", "", "", "", ""]
+    "custom/firefox": {
+        "format": "",
+        "on-click": "firefox",
+        "tooltip": true,
+        "tooltip-format": "Firefox"
+    },
+
+    "clock": {
+        "format": "{:%H:%M:%S}",
+        "tooltip-format": "{:%A, %d %B %Y}",
+        "interval": 1
     },
 
     "network": {
-        "format-wifi": "  {essid} ({signalStrength}%)",
-        "format-ethernet": " eth",
-        "format-disconnected": "  disconnected",
-        "tooltip-format": "{ifname}: {ipaddr}",
+        "format-wifi": " ",
+        "format-ethernet": "",
+        "format-disconnected": " ",
+        "tooltip-format": "{essid}\n{ipaddr}",
         "on-click": "kitty nmtui"
+    },
+
+    "bluetooth": {
+        "format": "",
+        "format-connected": "",
+        "format-disabled": "",
+        "on-click": "blueman-manager"
     },
 
     "battery": {
         "format": "{icon} {capacity}%",
-        "format-icons": ["", "", "", "", ""],
+        "format-charging": " {capacity}%",
+        "format-full": " {capacity}%",
+        "format-icons": [" ", " ", " ", " ", " "],
         "states": {
             "warning": 30,
             "critical": 15
         }
     },
 
-    "tray": {
-        "icon-size": 16,
-        "spacing": 8
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " ",
+        "format-icons": {
+            "default": ["", " ", " "]
+        },
+        "scroll-up": "pamixer -i 5",
+        "scroll-down": "pamixer -d 5",
+        "on-click": "pavucontrol"
+    },
+
+    "backlight": {
+        "format": " {percent}%",
+        "scroll-up": "brightnessctl s +5%",
+        "scroll-down": "brightnessctl s -5%"
     }
-}
+} 
+    
