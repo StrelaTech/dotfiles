@@ -1,74 +1,98 @@
-Dotfiles
+# 🧑‍💻 StrelaTech Dotfiles
 
-My personal configuration files for Hyprland and related tools on Arch Linux.
+Мои персональные конфигурационные файлы для окружения **Hyprland** на **Arch Linux**.
+Минимализм, производительность и полный контроль над системой.
 
-📸 Screenshots
+![Screenshot 1](assets/screen.png)
+![Screenshot 2](assets/screen2.png)
 
-assets/screenshot1.png
-assets/screenshot2.png
-assets/screenshot3.png
+---
 
-🚀 Features
+## 🎨 Дизайн
 
-· Hyprland - Tiling window manager with dynamic tiling
-· Hyprpaper - Wallpaper management
-· Waybar - Status bar
-· Wofi - Application launcher
-· Kitty - Terminal emulator
-· Fastfetch - System information display
-· Nemo - File manager
-· Grim + Slurp - Screenshot tool
-· NetworkManager - Network management
+- Минималистичная черно-белая цветовая схема.
+- Чистый, ненавязчивый интерфейс.
+- Легкая замена обоев через файл `hypr/wall.png`.
 
-🎨 Design
+---
 
-· Minimal black and white color scheme
-· Clean and functional interface
-· Customizable wallpaper support
+## ⌨️ Горячие клавиши
 
-⌨️ Keyboard Shortcuts
+| Комбинация        | Действие                   |
+|-------------------|----------------------------|
+| `Super + T`       | Открыть терминал (Kitty)   |
+| `Super + E`       | Открыть файловый менеджер  |
+| `Super + P`       | Сделать скриншот           |
+| `Super + R`       | Открыть лаунчер (Wofi)     |
+| `Super + Q`       | Закрыть активное окно      |
+| `Super + M`       | Выйти из Hyprland          |
 
-Shortcut Action
-Super + T Open terminal
-Super + E Open file manager
-Super + P Take screenshot
-Super + R Application launcher
-Super + Q Close window
-Super + M Exit Hyprland
+---
 
-📦 Dependencies
+## 📦 Зависимости
 
-Install the following packages:
+Перед установкой убедитесь, что у вас установлены следующие пакеты:
 
-```bash
-hyprland hyprpaper waybar wofi kitty fastfetch grim slurp wl-clipboard brightnessctl pactl nemo networkmanager network-manager-applet
 ```
 
-🔧 Installation
+hyprland wayland wlroots nm-applet waybar hyprpaper kitty nemo wofi 
+wpctl brightnessctl playerctl grim slurp nmtui hyprshutdown firefox 
+blueman-manager networkmanager pavucontrol pamixer pulseaudio
 
-Automatic Installation (setup.sh)
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/StrelaTech/dotfiles.git
-cd dotfiles
 ```
 
-2. Run the setup script:
+> **Примечание:** Все зависимости доступны в официальных репозиториях Arch Linux и AUR.
 
-```bash
-./setup.sh
+---
+
+## 📁 Структура проекта
+
+```
+.
+├── assets/
+│   ├── screen.png          # Скриншот рабочего стола
+│   └── screen2.png         # Дополнительный скриншот
+├── fastfetch/
+│   └── config.jsonc        # Конфигурация Fastfetch
+├── hypr/
+│   ├── hyprland.lua        # Основной конфиг Hyprland (Lua)
+│   ├── hyprpaper.conf      # Настройки обоев Hyprpaper
+│   └── wall.png            # Текущие обои
+├── kitty/
+│   └── kitty.conf          # Конфигурация терминала Kitty
+├── waybar/
+│   ├── config              # Настройки панели Waybar
+│   └── style.css           # Стили Waybar
+├── wofi/
+│   └── style.css           # Стили лаунчера Wofi
+├── LICENSE                 # Лицензия MIT
+├── README.md               # Этот файл
+└── setup.sh                # Скрипт автоматической установки
+
 ```
 
-⚠️ Warning: The setup script may be unstable and is not guaranteed to work on all systems. It will overwrite existing configuration files. Make sure to backup your current configs before running.
+---
 
-Manual Installation
+## 🔧 Установка
 
-If the setup script doesn't work, you can manually copy the configuration files:
+### Автоматическая (скрипт `setup.sh`)
+
+1. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/StrelaTech/dotfiles.git
+   cd dotfiles
+```
+
+2. Запустите установку:
+   ```bash
+   ./setup.sh
+   ```
+
+Ручная установка
+
+Если вы хотите выборочно установить конфигурации:
 
 ```bash
-# Copy each config directory to ~/.config/
 cp -r fastfetch ~/.config/
 cp -r hypr ~/.config/
 cp -r kitty ~/.config/
@@ -76,16 +100,22 @@ cp -r waybar ~/.config/
 cp -r wofi ~/.config/
 ```
 
-💡 Note: Manual installation gives you more control and is the recommended method if you want to preserve existing configurations or selectively install components.
+---
 
-3. Change wallpaper by replacing hypr/wall.png with your own image (keep the same filename).
+🖼️ Смена обоев
 
-🌐 Network
+Просто замените файл hypr/wall.png на свое изображение (сохранив имя файла).
 
-NetworkManager is used for network management. Use nm-applet for GUI management.
+---
 
-📝 Notes
+📝 Примечания
 
-· Tested only on Arch Linux
-· Script does not install dependencies automatically
-· For issues or questions, please open an issue or contact me on Telegram: @streladirect_bot
+· Конфигурация протестирована только на Arch Linux.
+· Скрипт установки не устанавливает зависимости автоматически.
+· По всем вопросам — открывайте Issue или пишите в Telegram: @streladirect_bot
+
+---
+
+📄 Лицензия
+
+Распространяется под лицензией MIT. Подробности в файле LICENSE.
